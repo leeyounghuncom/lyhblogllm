@@ -28,22 +28,25 @@ LLM OpenAI GPTs 블로그 업로더 (이영훈닷컴 LLM)
  리스트,글등록 | docs/           | GET, POST   
  글수정,삭제  | docs/<int:pk>   | PUT, DELETE 
  상세페이지   | <slug:doc_name> | POST        
-<br>
+
 # 설치 및 실행 방법
 * pip install -r requirements.txt
 * .env 확인
 * python manage.py migrate
 * python manage.py runserver
-<br>
+
+
 # GPTS 스키마 적용 방법
 1. GPTS -> 작업 -> 설명 
 2. 스키마 클릭 
 3. api.yaml 내용 복사
 4. 스키마 붙여 넣기 
-<br>
+
+
 # 시연 영상 링크
 https://www.dropbox.com/scl/fi/txngyhrlv3rp9k2oeuxaw/LLM-2.mp4?rlkey=8p54wtk9022bzb450lk6sryls&st=6h1yarj8&dl=0
-<br>
+
+
 # 연락처
 **이메일:** dosiraklab@gmail.com
 **연락처:** 010-5659-7567
