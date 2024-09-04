@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: https://leeyounghun.com
+  - url: https://도메인변경
 paths:
   /{slug}/:
     get:
