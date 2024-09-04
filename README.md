@@ -1,2 +1,2 @@
-# lyhblogllm
-이영훈닷컴 LLM 버전
+# 이영훈닷컴 LLM
+
