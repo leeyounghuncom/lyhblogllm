@@ -9,3 +9,7 @@
 # 개발 환경
 **Python** : Django DRF<br>
 **DB** : SQlite<br>
+
+# ERD
+![image](https://github.com/leeyounghuncom/lyhblogllm/blob/main/etc/erd.png?raw=true)
+
