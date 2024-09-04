@@ -13,3 +13,11 @@
 # ERD
 ![image](https://github.com/leeyounghuncom/lyhblogllm/blob/main/etc/erd.png?raw=true)
 
+# RESTful API 명세서
+ 명칭      | Endpoint        | Method      
+|---------|-----------------|-------------|
+ 리스트,글등록 | docs/           | GET, POST   
+ 글수정,삭제  | docs/<int:pk>   | PUT, DELETE 
+ 상세페이지   | <slug:doc_name> | POST        
+
+
