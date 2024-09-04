@@ -25,3 +25,9 @@
 * .env 확인
 * python manage.py migrate
 * python manage.py runserver
+
+# GPTS 스키마 적용 방법
+1. GPTS -> 작업 -> 설명 
+2. 스키마 클릭 
+3. api.yaml 내용 복사
+4. 스키마 붙여 넣기 
