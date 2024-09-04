@@ -20,4 +20,8 @@
  글수정,삭제  | docs/<int:pk>   | PUT, DELETE 
  상세페이지   | <slug:doc_name> | POST        
 
-
+# 설치 및 실행 방법
+* pip install -r requirements.txt
+* .env 확인
+* python manage.py migrate
+* python manage.py runserver
