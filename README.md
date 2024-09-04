@@ -9,6 +9,7 @@
 # 개발 환경
 **Python** : Django DRF<br>
 **DB** : SQlite<br>
+**LLM** : OpenAI GPTS
 
 # ERD
 ![image](https://github.com/leeyounghuncom/lyhblogllm/blob/main/etc/erd.png?raw=true)
@@ -31,3 +32,6 @@
 2. 스키마 클릭 
 3. api.yaml 내용 복사
 4. 스키마 붙여 넣기 
+
+# 시연 영상 링크
+https://www.dropbox.com/scl/fi/txngyhrlv3rp9k2oeuxaw/LLM-2.mp4?rlkey=8p54wtk9022bzb450lk6sryls&st=6h1yarj8&dl=0
