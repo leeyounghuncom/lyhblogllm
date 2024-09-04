@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이영훈닷컴(Leeyounghun)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+
+<header class="p-3 text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class=" navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <p class="h5">이영훈 닷컴</p>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">블로그</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary" onclick="alert('내배캠 끝나기전 오픈 목표')">IT뉴스</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary" onclick="alert('내배캠 끝나기전 오픈 목표')">미디어</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary" onclick="alert('내배캠 끝나기전 오픈 목표')">키워드 블로그</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary" onclick="alert('내배캠 끝나기전 오픈 목표')">이영훈닷컴이란?</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                       aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <!-- 사용자가 로그인하지 않은 경우 -->
+                <a href="#" class="btn btn-outline-light me-2" onclick="alert('내배캠 끝나기전 오픈 목표')">로그인</a>
+                <a href="#" class="btn btn-warning" onclick="alert('내배캠 끝나기전 오픈 목표')">회원가입</a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div id="tistoryfeed" class="container py-3"></div>
+
+<script type="text/javascript">
+
+    const jsonUrl = 'https://leeyounghun.com/docs/'; // tistory.json 파일 경로
+
+    fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const tbody = document.getElementById('tistoryfeed');
+            if (!tbody) {
+                console.error('tbody 요소를 찾을 수 없습니다.');
+                return;
+            }
+
+            tbody.innerHTML = ''; // 기존 내용 지우기
+
+            // 데이터를 반복하여 각 항목을 테이블에 추가
+            data.forEach((item, index) => {
+                const {doc_date, doc_title, doc_content, doc_name} = item;
+                const row = `<div class="row align-items-center mb-3">
+                <div class="col">
+                    <a href="#" class="text-decoration-none text-dark slug-link" data-slug="${doc_name}" rel="nofollow">
+                        <h2 class="h5">${doc_title}</h2>
+                    </a>
+                    <p class="small text-muted">${doc_content}</p>
+                </div>
+                <div class="col-auto text-muted">${doc_date}</div>
+            </div>`;
+                tbody.innerHTML += row;
+            });
+
+            // 모든 .slug-link 요소에 클릭 이벤트 리스너 추가
+            document.querySelectorAll('.slug-link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // 기본 클릭 동작(페이지 이동) 막기
+                    const slug = this.getAttribute('data-slug'); // 클릭된 링크의 data-slug 값 가져오기
+                    fetchDataBySlug(slug); // slug 값으로 fetch 함수 호출
+                });
+            });
+        })
+        .catch(error => console.error('데이터를 가져오는 도중 오류가 발생했습니다:', error));
+
+    // 슬러그 값을 기반으로 데이터를 가져오는 함수
+    function fetchDataBySlug(slug) {
+
+        const fetchUrl = `https://leeyounghun.com/${slug}`; // 슬러그 값을 포함한 새로운 fetch URL
+        fetch(fetchUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Slug 데이터를 가져왔습니다:', data);
+                // 가져온 데이터에 대한 추가 처리 로직 작성
+
+                const contentContainer = document.getElementById('tistoryfeed'); // 데이터를 표시할 컨테이너 요소
+                if (!contentContainer) {
+                    console.error('데이터를 표시할 컨테이너를 찾을 수 없습니다.');
+                    return;
+                }
+
+                const {doc_title, doc_date, doc_content} = data; // 가져온 데이터의 필요한 필드
+                // HTML 동적으로 생성하여 삽입
+                const contentHtml = `
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h1 class="card-title">${doc_title}</h1>
+                                    <a href="javascript:void(0);" onclick="goBackToList();" class="btn btn-outline-primary btn-sm">리스트로 가기</a>
+                                </div>
+                                <p class="text-muted">${doc_date}</p>
+                                <hr>
+                                <div class="card-text">
+                                    ${doc_content}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                contentContainer.innerHTML = contentHtml; // 컨테이너에 HTML 삽입
+
+            })
+            .catch(error => console.error('Slug 데이터를 가져오는 도중 오류가 발생했습니다:', error));
+    }
+
+
+    // 리스트로 돌아가는 기능 구현 (추가 기능)
+    function goBackToList() {
+        location.href = "./"
+    }
+
+</script>
+
+
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container">
+        <span class="text-body-secondary">2024 이영훈닷컴 </span>
+    </div>
+</footer>
+
+</body>
+</html>
