@@ -27,7 +27,7 @@ LLM OpenAI GPTs 블로그 업로더 (이영훈닷컴 LLM)
 |---------|-----------------|-------------|
  리스트,글등록 | docs/           | GET, POST   
  글수정,삭제  | docs/<int:pk>   | PUT, DELETE 
- 상세페이지   | <slug:doc_name> | POST        
+ 상세페이지   | <slug:doc_name> | GET        
 
 # 설치 및 실행 방법
 * pip install -r requirements.txt
