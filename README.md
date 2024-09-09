@@ -46,6 +46,8 @@ LLM OpenAI GPTs 블로그 업로더 (이영훈닷컴 LLM)
 https://www.dropbox.com/scl/fi/txngyhrlv3rp9k2oeuxaw/LLM-2.mp4?rlkey=8p54wtk9022bzb450lk6sryls&st=6h1yarj8&dl=0
 
 # 프론트엔드 캡쳐
+## 와이어프레임
+![image](https://github.com/leeyounghuncom/lyhblogllm/blob/main/etc/20240909_173848.jpg?raw=true)
 ## 목록
 ![image](https://github.com/leeyounghuncom/lyhblogllm/blob/main/etc/LLM02.png?raw=true)
 ## 상세
