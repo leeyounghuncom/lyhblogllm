@@ -15,7 +15,7 @@ LLM OpenAI GPTs 블로그 업로더 (이영훈닷컴 LLM)
 
 # 기술 스택
 **언어:** Python 3.12.X<br>
-**프레임워크:** Django 4.2 DRF  (웹 서버 관리), GPTs OpenAI (블로그 글 생성)<br>
+**프레임워크:** Django 4.2 DRF  (웹 서버 관리), GPT4 (블로그 글 생성)<br>
 기타 도구: HTML5/CSS3 (프론트엔드 디자인)
 <br>
 # ERD
